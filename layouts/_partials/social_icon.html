@@ -1,0 +1,14 @@
+{{- $iconName := trim .name " " | lower -}}
+{{- $legacyPath := "layouts/_partials/svg.html" -}}
+{{- $iconPath := printf "layouts/_partials/social-icons/%s.svg" $iconName -}}
+
+{{- if fileExists $legacyPath -}}
+    {{- $legacy := readFile $legacyPath -}}
+    {{- if in $legacy (printf `eq $icon_name "%s"` $iconName) -}}
+        {{- partial "svg.html" . -}}
+    {{- else if fileExists $iconPath -}}
+        {{- readFile $iconPath | safeHTML -}}
+    {{- end -}}
+{{- else if fileExists $iconPath -}}
+    {{- readFile $iconPath | safeHTML -}}
+{{- end -}}
