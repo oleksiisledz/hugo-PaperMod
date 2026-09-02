@@ -1,0 +1,6 @@
+{{- $iconName := trim .name " " | lower -}}
+{{- $iconPath := printf "layouts/_partials/social-icons/%s.svg" $iconName -}}
+
+{{- if fileExists $iconPath -}}
+    {{- readFile $iconPath | safeHTML -}}
+{{- end -}}
