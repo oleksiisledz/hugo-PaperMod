@@ -7,10 +7,12 @@
     <span>{{- i18n "translations" | default "Translations" }}:</span>
     <ul class="i18n_list">
         {{- range .Translations }}
+        {{- $langLabel := "" }}
+        {{- if ge hugo.Version "0.158.0" }}{{ $langLabel = .Language.Label }}{{ else }}{{ $langLabel = .Language.LanguageName }}{{ end }}
         <li>
             <a href="{{ .Permalink }}">
-                {{- if (and site.Params.displayFullLangName (.Language.LanguageName)) }}
-                {{- .Language.LanguageName | emojify -}}
+                {{- if (and site.Params.displayFullLangName $langLabel) }}
+                {{- $langLabel | emojify -}}
                 {{- else }}
                 {{- .Lang | title -}}
                 {{- end -}}

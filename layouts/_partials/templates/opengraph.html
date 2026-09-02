@@ -12,7 +12,9 @@
   <meta property="og:description" content="{{ trim . "\n\r\t " }}">
 {{- end }}
 
-{{- with or .Params.locale site.Language.LanguageCode }}
+{{- $langCode := "" }}
+{{- if ge hugo.Version "0.158.0" }}{{ $langCode = site.Language.Locale }}{{ else }}{{ $langCode = site.Language.LanguageCode }}{{ end }}
+{{- with or .Params.locale $langCode }}
   <meta property="og:locale" content="{{ replace . `-` `_` }}">
 {{- end }}
 

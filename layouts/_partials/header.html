@@ -66,11 +66,13 @@
                     <ul class="lang-menu">
                         {{- range . -}}
                         {{- if ne $lang .Lang }}
+                        {{- $langLabel := "" }}
+                        {{- if ge hugo.Version "0.158.0" }}{{ $langLabel = .Language.Label }}{{ else }}{{ $langLabel = .Language.LanguageName }}{{ end }}
                         <li>
-                            <a href="{{- .Permalink -}}" title="{{ .Language.Params.languageAltTitle | default (.Language.LanguageName | emojify) | default (.Lang | title) }}"
-                                aria-label="{{ .Language.LanguageName | default (.Lang | title) }}">
-                                {{- if (and site.Params.displayFullLangName (.Language.LanguageName)) }}
-                                {{- .Language.LanguageName | emojify -}}
+                            <a href="{{- .Permalink -}}" title="{{ .Language.Params.languageAltTitle | default ($langLabel | emojify) | default (.Lang | title) }}"
+                                aria-label="{{ $langLabel | default (.Lang | title) }}">
+                                {{- if (and site.Params.displayFullLangName $langLabel) }}
+                                {{- $langLabel | emojify -}}
                                 {{- else }}
                                 {{- .Lang | title -}}
                                 {{- end -}}
