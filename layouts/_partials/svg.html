@@ -1,7 +1,22 @@
-{{- $iconName := trim .name " " | lower -}}
-{{- $iconPath := printf "icons/social/%s.svg" $iconName -}}
-{{- $svgResource := resources.Get $iconPath -}}
+{{- $rawName := trim .name " " -}}
 
-{{- if $svgResource -}}
-    {{- $svgResource.Content | safeHTML -}}
+{{- if hasPrefix $rawName "/" -}}
+    
+    {{- $customPath := strings.TrimPrefix "/" $rawName -}}
+    {{- $svgResource := resources.Get $customPath -}}
+    
+    {{- if $svgResource -}}
+        {{- $svgResource.Content | safeHTML -}}
+    {{- end -}}
+
+{{- else -}}
+    
+    {{- $iconName := lower $rawName -}}
+    {{- $iconPath := printf "icons/social/%s.svg" $iconName -}}
+    {{- $svgResource := resources.Get $iconPath -}}
+    
+    {{- if $svgResource -}}
+        {{- $svgResource.Content | safeHTML -}}
+    {{- end -}}
+
 {{- end -}}
