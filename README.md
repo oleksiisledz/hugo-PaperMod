@@ -1,5 +1,3 @@
-# community-maintained fork of the original PaperMod theme
-
 # Hugo PaperMod (Community Edition)
 
 > **Note:** This branch is a community-maintained fork of the original [Hugo PaperMod](https://github.com/adityatelange/hugo-PaperMod) theme by Aditya Telange. 
