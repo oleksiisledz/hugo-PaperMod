@@ -7,6 +7,7 @@
 ## What is included here?
 This version includes several community improvements that have not yet been merged into the official theme, including:
 * Refactored social icons
+* Added version-guarded language API deprecation fix
 
 [![hugo-papermod](https://img.shields.io/badge/Hugo--Themes-@PaperMod-blue)](https://themes.gohugo.io/themes/hugo-papermod/)
 [![Minimum Hugo Version](https://img.shields.io/static/v1?label=Hugo&message=v0.146.0%2B&color=blue&logo=hugo)](https://github.com/gohugoio/hugo/releases/tag/v0.146.0)
