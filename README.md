@@ -1,6 +1,14 @@
-# Hugo PaperMod
+# community-maintained fork of the original PaperMod theme
 
-**A fast, clean, and responsive theme for [Hugo](https://gohugo.io/).**
+# Hugo PaperMod (Community Edition)
+
+> **Note:** This branch is a community-maintained fork of the original [Hugo PaperMod](https://github.com/adityatelange/hugo-PaperMod) theme by Aditya Telange. 
+> 
+> It was created to consolidate community fixes, unmerged pull requests, and quality-of-life updates while the main repository is inactive. All core credits and licenses belong to the original author.
+
+## What is included here?
+This version includes several community improvements that have not yet been merged into the official theme, including:
+* Refactored social icons
 
 [![hugo-papermod](https://img.shields.io/badge/Hugo--Themes-@PaperMod-blue)](https://themes.gohugo.io/themes/hugo-papermod/)
 [![Minimum Hugo Version](https://img.shields.io/static/v1?label=Hugo&message=v0.146.0%2B&color=blue&logo=hugo)](https://github.com/gohugoio/hugo/releases/tag/v0.146.0)
